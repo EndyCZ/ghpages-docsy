@@ -1,3 +1,6 @@
+# Copied from https://github.com/marketplace/actions/hugo-setup
+# problem was with using true instead of recursive in the first step actions/checkout@v2 and using extended
+
 name: github pages
 
 on:
@@ -44,5 +47,5 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.SECRET }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
