@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
+          submodules: recursive  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
       - name: Setup Hugo
@@ -20,14 +20,17 @@ jobs:
           hugo-version: '0.80.0'
           extended: true
       
-      - name: Check Version
+      - name: Check Version npm
+        run: npm help
+
+      - name: Check Version npm
         run: npm install
-        
+          
       - name: install autoprefixer
-        run: npm install -D autoprefixer
+        run: npm install -D --save autoprefixer
       
       - name: install postcss-cli
-        run: npm install -D postcss-cli
+        run: npm install -D --save postcss-cli
       
       - name: install postcss
         run: npm install -D postcss
